@@ -1,42 +1,32 @@
-using Mirror;
 using UnityEngine;
 
 namespace StarterAssets
 {
-    public class UICanvasControllerInput : NetworkBehaviour
+    public class UICanvasControllerInput : MonoBehaviour
     {
 
         [Header("Output")]
-        public StarterAssetsInputs starterAssetsInputs;
+        public StarterAssetsInputs AssetsInputs;
 
         public void VirtualMoveInput(Vector2 virtualMoveDirection)
         {
-			if (!isLocalPlayer) return;
-
-			starterAssetsInputs.MoveInput(virtualMoveDirection);
+			AssetsInputs.MoveInput(virtualMoveDirection);
         }
 
         public void VirtualLookInput(Vector2 virtualLookDirection)
         {
-			if (!isLocalPlayer) return;
-
-			starterAssetsInputs.LookInput(virtualLookDirection);
+			AssetsInputs.LookInput(virtualLookDirection);
         }
 
         public void VirtualJumpInput(bool virtualJumpState)
         {
-			if (!isLocalPlayer) return;
-
-			starterAssetsInputs.JumpInput(virtualJumpState);
+			AssetsInputs.JumpInput(virtualJumpState);
         }
 
         public void VirtualSprintInput(bool virtualSprintState)
         {
-			if (!isLocalPlayer) return;
-
-			starterAssetsInputs.SprintInput(virtualSprintState);
+			AssetsInputs.SprintInput(virtualSprintState);
         }
-        
     }
 
 }

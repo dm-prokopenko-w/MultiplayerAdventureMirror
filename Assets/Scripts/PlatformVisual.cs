@@ -2,14 +2,17 @@ using UnityEngine;
 
 public class PlatformVisual : MonoBehaviour
 {
-	[SerializeField] private GameObject _uiControl;
+	[SerializeField] private GameObject _androidBody;
+	[SerializeField] private GameObject _pcBody;
 
 	private void Awake()
 	{
-		_uiControl.SetActive(false);
+		_androidBody.SetActive(false);
+		_pcBody.SetActive(true);
 
 #if UNITY_ANDROID
-		_uiControl.SetActive(true);
+		_androidBody.SetActive(true);
+		_pcBody.SetActive(false);
 #endif
 	}
 

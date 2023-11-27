@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace UI
 {
-	public class BackToLobby : NetworkBehaviour
+	public class BackToLobby : MonoBehaviour
 	{
 		[SerializeField] private Button _stopGameBtn;
 
@@ -33,8 +33,6 @@ namespace UI
 
 		private void Update()
 		{
-			if (!isLocalPlayer) return;
-
 			if (Input.GetKeyDown(KeyCode.Escape))
 			{
 				StopGame();

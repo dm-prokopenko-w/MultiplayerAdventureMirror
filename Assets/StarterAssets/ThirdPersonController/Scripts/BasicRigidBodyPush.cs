@@ -9,8 +9,6 @@ public class BasicRigidBodyPush : NetworkBehaviour
 
 	private void OnControllerColliderHit(ControllerColliderHit hit)
 	{
-		if (!isLocalPlayer) return;												
-
 		if (canPush) PushRigidBodies(hit);
 	}
 

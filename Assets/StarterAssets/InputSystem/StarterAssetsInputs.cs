@@ -21,6 +21,12 @@ namespace StarterAssets
 		public bool cursorLocked = true;
 		public bool cursorInputForLook = true;
 
+		public override void OnStartLocalPlayer()
+		{
+			base.OnStartLocalPlayer();
+			GameObject.FindObjectOfType<UICanvasControllerInput>().AssetsInputs = this;
+		}
+
 #if ENABLE_INPUT_SYSTEM
 		public void OnMove(InputValue value)
 		{
