@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Mirror;
+using UnityEngine;
 
-public class BasicRigidBodyPush : MonoBehaviour
+public class BasicRigidBodyPush : NetworkBehaviour
 {
 	public LayerMask pushLayers;
 	public bool canPush;
@@ -8,6 +9,8 @@ public class BasicRigidBodyPush : MonoBehaviour
 
 	private void OnControllerColliderHit(ControllerColliderHit hit)
 	{
+		if (!isLocalPlayer) return;												
+
 		if (canPush) PushRigidBodies(hit);
 	}
 
@@ -19,7 +22,7 @@ public class BasicRigidBodyPush : MonoBehaviour
 		Rigidbody body = hit.collider.attachedRigidbody;
 		if (body == null || body.isKinematic) return;
 
-		// make sure we only push desired layer(s)
+		// make sure we only push desired layer(s)								
 		var bodyLayerMask = 1 << body.gameObject.layer;
 		if ((bodyLayerMask & pushLayers.value) == 0) return;
 

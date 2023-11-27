@@ -11,8 +11,9 @@ using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
+using Mirror;
 
-public class MobileDisableAutoSwitchControls : MonoBehaviour
+public class MobileDisableAutoSwitchControls : NetworkBehaviour
 {
     
 #if ENABLE_INPUT_SYSTEM && (UNITY_IOS || UNITY_ANDROID)
@@ -22,8 +23,10 @@ public class MobileDisableAutoSwitchControls : MonoBehaviour
 
     void Start()
     {
-        DisableAutoSwitchControls();
-    }
+		if (!isLocalPlayer) return;
+
+		DisableAutoSwitchControls();
+    }                                   
 
     void DisableAutoSwitchControls()
     {

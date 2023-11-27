@@ -1,8 +1,9 @@
+using Mirror;
 using UnityEngine;
 
 namespace StarterAssets
 {
-    public class UICanvasControllerInput : MonoBehaviour
+    public class UICanvasControllerInput : NetworkBehaviour
     {
 
         [Header("Output")]
@@ -10,22 +11,30 @@ namespace StarterAssets
 
         public void VirtualMoveInput(Vector2 virtualMoveDirection)
         {
-            starterAssetsInputs.MoveInput(virtualMoveDirection);
+			if (!isLocalPlayer) return;
+
+			starterAssetsInputs.MoveInput(virtualMoveDirection);
         }
 
         public void VirtualLookInput(Vector2 virtualLookDirection)
         {
-            starterAssetsInputs.LookInput(virtualLookDirection);
+			if (!isLocalPlayer) return;
+
+			starterAssetsInputs.LookInput(virtualLookDirection);
         }
 
         public void VirtualJumpInput(bool virtualJumpState)
         {
-            starterAssetsInputs.JumpInput(virtualJumpState);
+			if (!isLocalPlayer) return;
+
+			starterAssetsInputs.JumpInput(virtualJumpState);
         }
 
         public void VirtualSprintInput(bool virtualSprintState)
         {
-            starterAssetsInputs.SprintInput(virtualSprintState);
+			if (!isLocalPlayer) return;
+
+			starterAssetsInputs.SprintInput(virtualSprintState);
         }
         
     }

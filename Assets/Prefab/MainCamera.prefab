@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8944336655422409503}
   - component: {fileID: 8944336655422409496}
   - component: {fileID: 9078993845375825671}
-  - component: {fileID: 8163282251454311271}
+  - component: {fileID: -5988586709265087385}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -57,8 +57,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.2
-  far clip plane: 500
+  near clip plane: 0.1
+  far clip plane: 5000
   field of view: 40
   orthographic: 0
   orthographic size: 10
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8163282251454311271
+--- !u!114 &-5988586709265087385
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
